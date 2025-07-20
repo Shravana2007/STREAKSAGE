@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Custom spiritual colors */
+  --forest: hsl(133, 35%, 26%);
+  --sage: hsl(133, 24%, 43%);
+  --cream: hsl(48, 38%, 95%);
+  --mint: hsl(120, 30%, 94%);
+  --warm-orange: hsl(32, 100%, 64%);
+  --sky-blue: hsl(197, 71%, 73%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, var(--mint), var(--cream));
+    color: var(--foreground);
+    min-height: 100vh;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="leaf" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M10 2C6 2 3 5 3 9c0 4 3 7 7 7s7-3 7-7c0-4-3-7-7-7z" fill="%23E8F5E8" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23leaf)"/></svg>');
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .forest {
+    color: var(--forest);
+  }
+
+  .sage {
+    color: var(--sage);
+  }
+
+  .bg-forest {
+    background-color: var(--forest);
+  }
+
+  .bg-sage {
+    background-color: var(--sage);
+  }
+
+  .bg-warm-orange {
+    background-color: var(--warm-orange);
+  }
+
+  .text-forest {
+    color: var(--forest);
+  }
+
+  .text-sage {
+    color: var(--sage);
+  }
+
+  .text-warm-orange {
+    color: var(--warm-orange);
+  }
+
+  .border-forest {
+    border-color: var(--forest);
+  }
+
+  .border-sage {
+    border-color: var(--sage);
+  }
+
+  .ring-forest {
+    --tw-ring-color: var(--forest);
+  }
+
+  .ring-sage {
+    --tw-ring-color: var(--sage);
+  }
+
+  .hover\:bg-sage:hover {
+    background-color: var(--sage);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-streak {
+    animation: streak 0.5s ease-in-out;
+  }
+
+  .animate-check {
+    animation: check 0.3s ease-in-out;
+  }
+
+  .font-crimson {
+    font-family: 'Crimson Text', serif;
+  }
+
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-10px); 
+    }
+  }
+
+  @keyframes streak {
+    0% { 
+      transform: scale(1); 
+    }
+    50% { 
+      transform: scale(1.1); 
+    }
+    100% { 
+      transform: scale(1); 
+    }
+  }
+
+  @keyframes check {
+    0% { 
+      transform: scale(0); 
+      opacity: 0; 
+    }
+    50% { 
+      transform: scale(1.2); 
+      opacity: 1; 
+    }
+    100% { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
+}
